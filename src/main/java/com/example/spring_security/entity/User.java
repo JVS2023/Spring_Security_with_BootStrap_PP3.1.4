@@ -46,8 +46,11 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+
     public User() {
     }
+
+
     public User(String firstName, String lastname, int age, String email, String password, Set<Role> roles) {
         this.firstName = firstName;
         this.lastname = lastname;
@@ -57,6 +60,7 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+
     public User(String firstName, String lastname, int age, String email, String password) {
         this.firstName = firstName;
         this.lastname = lastname;
@@ -64,6 +68,7 @@ public class User implements UserDetails {
         this.email = email;
         this.password = password;
     }
+
 
     public Set<Role> getRoles() {
         return roles;
@@ -166,5 +171,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 }

@@ -45,14 +45,6 @@ public class AdminController {
         return "adminpage";
     }
 
-//    @GetMapping("/new")
-//    public String newUser(Model model) {
-//        model.addAttribute("user", new User());
-//        Set<Role> roles = new HashSet<>(roleService.getAllRoles());
-//        model.addAttribute("allroles", roles);
-//        return "/new";
-//    }
-
     @PostMapping()
     public String create(@ModelAttribute("user") User user) {
         userService.add(user);

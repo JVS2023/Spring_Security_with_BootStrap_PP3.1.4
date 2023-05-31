@@ -1,6 +1,6 @@
 package com.example.spring_security.service;
 
-import com.example.spring_security.dao.RoleRepository;
+import com.example.spring_security.repository.RoleRepository;
 import com.example.spring_security.entity.Role;
 
 import org.springframework.stereotype.Service;
@@ -10,15 +10,12 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
 
-    private final EntityManager entityManager;
 
-
-    public RoleServiceImpl(RoleRepository roleRepository, EntityManager entityManager) {
+    public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
-        this.entityManager = entityManager;
     }
 
 
@@ -32,5 +29,4 @@ public class RoleServiceImpl implements RoleService{
     public List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
-
 }

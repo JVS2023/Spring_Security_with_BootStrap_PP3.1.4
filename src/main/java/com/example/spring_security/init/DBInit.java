@@ -45,5 +45,4 @@ public class DBInit {
         userService.add(user);
         userService.add(user1);
     }
-
 }

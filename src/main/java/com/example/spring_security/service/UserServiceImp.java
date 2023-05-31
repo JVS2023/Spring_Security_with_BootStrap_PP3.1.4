@@ -1,6 +1,6 @@
 package com.example.spring_security.service;
 
-import com.example.spring_security.dao.UserRepository;
+import com.example.spring_security.repository.UserRepository;
 import com.example.spring_security.entity.User;
 
 import org.springframework.context.annotation.Lazy;
@@ -16,7 +16,7 @@ public class UserServiceImp implements UserService {
     private final PasswordEncoder passwordEncoder;
 
 
-    public UserServiceImp(UserRepository userRepository,@Lazy PasswordEncoder passwordEncoder) {
+    public UserServiceImp(UserRepository userRepository, @Lazy PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -44,7 +44,6 @@ public class UserServiceImp implements UserService {
     @Transactional
     @Override
     public void update(User updatedUser) {
-
         updatedUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
         userRepository.save(updatedUser);
     }
@@ -75,6 +74,5 @@ public class UserServiceImp implements UserService {
     public User findUsersByEmail(String email) {
         return userRepository.findUsersByEmail(email);
     }
-
 }
 
